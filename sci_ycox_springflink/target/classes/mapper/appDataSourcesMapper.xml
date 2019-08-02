@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.sci.ycox.springflink.dao.AppDataSourcesMapper">
+        <resultMap id="BaseResultMap" type="com.sci.ycox.springflink.bean.AppDataSources">
+        <result column="r2" jdbcType="VARCHAR" property="r2" />
+        <result column="pvi" jdbcType="VARCHAR" property="pvi" />
+        <result column="si" jdbcType="VARCHAR" property="si" />
+        <result column="random" jdbcType="TIMESTAMP" property="random" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+    </resultMap>
+    <sql id="Base_Column_List">
+      r2, pvi, si, random, url
+    </sql>
+    <select id="list" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from app_data_sources
+    </select>
+</mapper>

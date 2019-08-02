@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: 'local'
+  application:
+    name: sci-ycox-kafka
+  kafka:
+    producer: 
+      bootstrap-servers: 127.0.0.1:8802
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      topic: cms-viu
+
+logging:
+config: classpath:log4j2.xml

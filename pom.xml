@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cn.sci.ycox</groupId>
+	<artifactId>sci_ycox_data</artifactId>
+	<version>1.0.0</version>
+	<name>sci_ycox_data</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<spring-kafka.version>2.1.10.RELEASE</spring-kafka.version>
+	</properties>
+	
+	 <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>${spring-kafka.version}</version>
+		</dependency>
+	</dependencies>
+
+    <developers>
+        <developer>
+            <id>xieyubin</id>
+            <email>xie.y.bin@163.com</email>
+            <roles>
+                <role>m</role>
+                <role>dev</role>
+            </roles>
+            <name>xieyubin</name>
+            <organization>org</organization>
+        </developer>
+
+    </developers>
+	
+	<modules>
+		<module>sci_ycox_flink</module>
+		<module>sci_ycox_kafka</module>
+	</modules>
+</project>

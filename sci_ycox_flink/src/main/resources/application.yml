@@ -1,0 +1,37 @@
+server:
+  port: 8804
+spring:
+  application:
+    name: sci-ycox-flink
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/flink_xyb?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password:
+
+# Kafka配置
+flink-kafka:
+  bootstrap:
+    servers: 127.0.0.1:8802
+
+
+## Redis配置
+redis:
+  clusterNodes: 127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003,127.0.0.1:7004,127.0.0.1:7005,127.0.0.1:7006
+  host: 127.0.0.1
+  single:
+    port: 6379
+    database: 0
+    password:
+  cluster:
+    max-redirections: 5
+  common:
+    timeout: 2000
+    max-total: 1000
+    max-idle: 8
+    min-idle: 0
+
+
+mybatis:
+  typeAliasesPackage: com.sci.ycox.spring.mysql.bean.*
+  mapperLocations: classpath*:mapper/**/*.xml

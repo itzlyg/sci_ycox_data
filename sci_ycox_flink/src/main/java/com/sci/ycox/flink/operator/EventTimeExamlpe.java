@@ -138,7 +138,7 @@ public class EventTimeExamlpe {
         @Override
         public long extractTimestamp(SourceEntity element, long previousElementTimestamp) {
             // return element.f4;
-            long timestamp = element.getRandom();
+            long timestamp = element.getRandom().getTime();
             currentMaxTimestamp = Math.max(timestamp, currentMaxTimestamp);
             return timestamp;
         }
@@ -158,7 +158,7 @@ public class EventTimeExamlpe {
         }
         @Override
         public long extractTimestamp(SourceEntity element) {
-            return element.getRandom();
+            return element.getRandom().getTime();
         }
 
     }

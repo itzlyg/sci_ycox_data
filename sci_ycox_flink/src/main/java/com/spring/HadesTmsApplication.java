@@ -1,8 +1,7 @@
 package com.spring;
 
-import com.ccb.flink.bean.SinkResult;
-import com.ccb.flink.util.RedisSinkKey;
-import com.ccb.flink.util.YamlConfigReader;
+import com.sci.ycox.flink.bean.SinkResult;
+import com.sci.ycox.flink.util.YamlConfigReader;
 import com.spring.sink.SimpleSink;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;

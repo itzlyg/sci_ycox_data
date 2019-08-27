@@ -1,6 +1,5 @@
 package com.spring.sink;
 
-import com.ccb.flink.bean.SinkResult;
 import com.spring.mysql.bean.AppDataSources;
 import com.spring.mysql.dao.AppDataSourcesMapper;
 import org.apache.flink.api.java.tuple.Tuple3;

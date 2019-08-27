@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.sci.ycox.flink.bean.SourceEntity;
 import com.sci.ycox.flink.bean.SourceOut;
 import com.sci.ycox.flink.enume.AppDbindex;
-import com.sci.ycox.flink.operator.uv.UvOperator1m;
-import com.sci.ycox.flink.operator.uv.UvOperator5s;
 import com.sci.ycox.flink.util.Utc2Local;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.streaming.api.TimeCharacteristic;
@@ -41,8 +39,6 @@ public class UvCountExample {
             // appId uid ip url ptime
             sources = env.addSource(consumer).map(json -> JSONObject.parseObject(json, SourceOut.class).getArgs());
             redisConfig = redisBuilder.setDatabase(appDbindex.getIndex()).build();
-            UvOperator5s.excute(appDbindex, sources, redisConfig, tableEnv);
-            UvOperator1m.excute(appDbindex, sources, redisConfig, tableEnv);
         }
         env.execute("Uv 5s Count");
     }

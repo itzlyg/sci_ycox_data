@@ -2,8 +2,6 @@ package com.sci.ycox.flink.main;
 
 import com.sci.ycox.flink.enume.AppDbindex;
 import com.sci.ycox.flink.observer.WeatherData;
-import com.sci.ycox.flink.operator.uv.UvForMinute;
-import com.sci.ycox.flink.operator.uv.UvForSencond;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -31,8 +29,8 @@ public class ReadData {
         FlinkKafkaConsumer<String> consumer = null;
         WeatherData data = null;
         SimpleStringSchema schema = new SimpleStringSchema();
-        UvForSencond sencond = null;
-        UvForMinute minute = null;
+//        UvForSencond sencond = null;
+//        UvForMinute minute = null;
         for (AppDbindex appDbindex : AppDbindex.values()){
             data = new WeatherData();
             consumer = new FlinkKafkaConsumer<>(appDbindex.getAppId(), schema, props);
@@ -40,7 +38,7 @@ public class ReadData {
             data.setAppDbindex(appDbindex);
             data.setTableEnv(tableEnv);
             data.setRedisBuilder(redisBuilder);
-            sencond = new UvForSencond(data);
+//            sencond = new UvForSencond(data);
             //minute = new UvForMinute(data);
             data.notifyObservers();
         }

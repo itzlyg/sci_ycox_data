@@ -1,7 +1,6 @@
 package com.sci.ycox.flink.bitmap;
 
 import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;

@@ -18,7 +18,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<flink.java.version>2.12</flink.java.version>
-		<flink.version>1.8.0</flink.version>
+		<flink.version>1.9.2</flink.version>
 		<fakfa.version>2.2.1</fakfa.version>
 	</properties>
 

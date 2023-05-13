@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="trace" strict="true" name="LogConfig">
+	<Properties>
+		<Property name="filepath">${sys:user.home}/sci_ycox_kafka_logs</Property>
+		<Property name="pattern">[SCI][ycox][%d{yyyy-MM-dd HH:mm:ss SSS}][%-5p][%l][kafka=%m]%n</Property>
+	</Properties>
+	<Appenders>
+		<Console name="AuthConsole" target="SYSTEM_OUT">
+			<PatternLayout pattern="${pattern}"/>
+		</Console>
+		<RollingRandomAccessFile name="SciLog" fileName="${filepath}/sci_ycox_kafka.log"
+			filePattern="${filepath}/bak/sciKafkaLog-%d{yy-MM-dd}-%i.log.gz">
+			<PatternLayout pattern="${pattern}"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="24MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="100">
+			<Delete basePath="${filepath}/bak/" maxDepth="1">
+				<!-- 超过30天的、如果单天文件数量大于1或者大小大于1G的优先删除 -->
+				<IfFileName glob="sciKafkaLog-*.log.gz">
+					<IfLastModified age="30d">
+						<IfAny>
+							<IfAccumulatedFileSize exceeds="1 GB" />
+							<IfAccumulatedFileCount exceeds="1" />
+						</IfAny>
+					</IfLastModified>
+				</IfFileName>
+			</Delete>
+			</DefaultRolloverStrategy>
+		</RollingRandomAccessFile>
+	</Appenders>
+	
+	<Loggers>
+		<Logger name="com.sci" level="INFO">
+			<AppenderRef ref="SciLog" />
+		</Logger>
+
+		<Root level="INFO">
+			<AppenderRef ref="AuthConsole" />
+		</Root>
+	</Loggers>
+
+</Configuration>

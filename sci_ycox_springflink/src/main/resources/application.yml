@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: 'local'
+  application:
+    name: sci-ycox-springflink
+
+logging:
+  config: classpath:log4j2.xml
+
+mybatis:
+  typeAliasesPackage: com.sci.ycox.springflink.bean.*
+  mapperLocations: classpath*:mapper/**/*.xml
